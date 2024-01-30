@@ -10,12 +10,7 @@ from launch_common import (
 def start_application(args=None):
     # Requirements need to be checked outside of the state machine
     # because the library transitions could not be present
-    ready = (
-        python_version_ok()
-        and requirements_installed()
-        and renamed_fee_ini()
-        and new_protocol_not_live()
-    )
+    ready = python_version_ok() and renamed_fee_ini() and new_protocol_not_live()
 
     if ready:
         from util.process_life_cycle import ProcessLifeCycle
